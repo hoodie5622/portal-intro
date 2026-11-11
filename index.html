@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI와 함께 만드는 개인 웹 포털. 프로젝트의 목적, 기능, 개발 과정을 소개합니다.">
+  <title>나의 작업실 | Personal Web Portal</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./public.css">
+  <script src="./public.js" defer></script>
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">본문으로 바로가기</a>
+
+  <header class="site-header wrap">
+    <!-- 공개해도 되는 닉네임으로 바꾸세요. -->
+    <a class="brand" href="#top">나의 작업실<span>PERSONAL WEB PORTAL</span></a>
+
+    <nav aria-label="소개 페이지 메뉴">
+      <a href="#features">기능 소개</a>
+      <a href="#process">개발 기록</a>
+      <button id="publicTheme" type="button" hidden>테마 전환</button>
+    </nav>
+  </header>
+
+  <main id="main" class="wrap" tabindex="-1">
+    <section class="hero" aria-labelledby="heroTitle">
+      <div>
+        <p class="eyebrow">01 / PERSONAL PROJECT</p>
+
+        <h1 id="heroTitle">필요한 도구를,<br>내가 쓰는 방식으로.</h1>
+
+        <p class="lead">
+          일정, 공부 기록, 메모를 한곳에 모으는 개인 웹 포털을 만들고 있습니다.
+        </p>
+
+        <p class="muted">
+          AI의 도움을 받아 코드를 작성하고, 직접 실행하면서 오류를 고치고 개선합니다.
+        </p>
+
+        <a class="button primary" href="#features">
+          어떤 기능을 만들었는지 보기
+        </a>
+      </div>
+
+      <aside class="project-card" aria-labelledby="projectTitle">
+        <p class="eyebrow">PROJECT AT A GLANCE</p>
+        <h2 id="projectTitle">작게 만들고,<br>직접 써 보며 개선합니다.</h2>
+
+        <dl>
+          <div>
+            <dt>목표</dt>
+            <dd>필요한 정보를 한곳에서 관리</dd>
+          </div>
+          <div>
+            <dt>개발 방식</dt>
+            <dd>AI 협업 + 직접 실행·확인</dd>
+          </div>
+          <div>
+            <dt>현재 단계</dt>
+            <dd>개인용 프로토타입 개선 중</dd>
+          </div>
+          <div>
+            <dt>이 페이지</dt>
+            <dd>프로젝트 소개 전용</dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
+
+    <section id="features" class="section" aria-labelledby="featuresTitle">
+      <p class="eyebrow">02 / FEATURES</p>
+      <h2 id="featuresTitle">하나씩 연결한 기능들</h2>
+
+      <p class="section-intro">
+        아래는 개인 포털의 기능 설명입니다.
+        실제 기록이나 체험용 데이터는 표시하지 않습니다.
+      </p>
+
+      <div class="feature-grid">
+        <article class="card">
+          <p class="number">01</p>
+          <h3>일정 관리</h3>
+          <p>할 일을 추가하고 수정하며, 완료 상태와 오늘 남은 일정을 확인합니다.</p>
+        </article>
+
+        <article class="card">
+          <p class="number">02</p>
+          <h3>공부 기록</h3>
+          <p>공부 시간을 측정하고 쉬는 시간을 제외해, 저장한 학습 기록을 모아 봅니다.</p>
+        </article>
+
+        <article class="card">
+          <p class="number">03</p>
+          <h3>지식 아카이브</h3>
+          <p>배운 내용과 참고 링크를 메모하고, 검색과 분류로 다시 찾아봅니다.</p>
+        </article>
+
+        <article class="card">
+          <p class="number">04</p>
+          <h3>도구 모음</h3>
+          <p>사칙연산, 단위 변환, 날짜 차이 계산처럼 자주 필요한 도구를 사용합니다.</p>
+        </article>
+
+        <article class="card">
+          <p class="number">05</p>
+          <h3>데이터 백업</h3>
+          <p>일정·저장된 공부 기록·메모를 JSON 파일로 보관하고 다시 불러옵니다.</p>
+        </article>
+
+        <article class="card">
+          <p class="number">06</p>
+          <h3>개인화 설정</h3>
+          <p>표시 이름, 라이트·다크 테마, 처음 열릴 화면을 선택합니다.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="process" class="section" aria-labelledby="processTitle">
+      <p class="eyebrow">03 / BUILD LOG</p>
+      <h2 id="processTitle">개발하면서 정리한 것</h2>
+
+      <ol class="timeline">
+        <li>
+          <h3>화면부터 만들기</h3>
+          <p>
+            HTML·CSS·JavaScript로 메뉴, 테마, 대시보드를 만들고
+            필요한 기능을 추가했습니다.
+          </p>
+        </li>
+
+        <li>
+          <h3>오류를 고치고 기준점 남기기</h3>
+          <p>
+            공통 기능과 일정 코드를 분리하고 Git으로 변경을 기록했습니다.
+            직접 시험한 기본 저장·검색·복원 흐름을 확인했습니다.
+          </p>
+        </li>
+
+        <li>
+          <h3>공개할 내용만 분리하기</h3>
+          <p>
+            개인용 관리 화면과 별도로 소개 페이지를 준비했습니다.
+            전체 기능이나 모든 오류 상황의 검증이 끝난 것은 아닙니다.
+          </p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="section boundary" aria-labelledby="scopeTitle">
+      <p class="eyebrow">04 / SCOPE</p>
+      <h2 id="scopeTitle">소개와 개인 기록은 구분합니다.</h2>
+
+      <p>
+        이 페이지에는 개인 일정, 공부 기록, 메모, 백업 파일을 연결하지 않았습니다.
+        로그인이나 실제 포털 체험 기능도 제공하지 않습니다.
+      </p>
+
+      <p class="muted">사용 기술: HTML · CSS · JavaScript · Git</p>
+    </section>
+  </main>
+
+  <footer class="site-footer wrap">
+    <p>Personal Web Portal · 만들고, 사용하고, 개선하는 기록.</p>
+    <a href="#top">맨 위로</a>
+  </footer>
+</body>
+</html>
