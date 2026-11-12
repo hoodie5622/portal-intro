@@ -1,0 +1,36 @@
+// 공개할 작품만 적으세요. 이 파일 자체도 공개됩니다.
+// 작품 추가: 아래 객체를 복사하고 제목·설명·주소를 바꾸세요.
+window.PORTFOLIO_PROJECTS = [
+    {
+    title: "Personal Web Portal",
+    description: "개인 웹 포털의 기능과 개발 과정을 소개합니다.",
+    tags: ["HTML", "CSS", "JavaScript"],
+    siteUrl: "https://hoodie5622.github.io/portal-intro/",
+    codeUrl: "https://github.com/hoodie5622/portal-intro",
+    image: "assets/portal_intro.jpg"
+  },
+  {
+    title: "Quiet-Orbit",
+    description: "아무것도 하지 않아도 괜찮은 시간. 마우스를 따라 흐르는 별빛, 천천히 바뀌는 다섯 우주와 함께 잠시 쉬어가세요.",
+    tags: ["HTML", "CSS", "JavaScript"],
+    siteUrl: "https://hoodie5622.github.io/portal-intro/",
+    codeUrl: "https://github.com/hoodie5622/Quiet-Orbit",
+    image: "assets/quiet-orbit-github-v5.jpg"
+  },
+ {
+    title: "마침표.",
+    description: "제출 전에 파일 이름, 누락, 용량을 확인하는 로컬 파일 검사기 마침표.",
+    tags: ["HTML", "CSS", "JavaScript"],
+    siteUrl: "https://hoodie5622.github.io/machimpyo/",
+    codeUrl: "https://github.com/hoodie5622/machimpyo",
+    image: "assets/machimpyo-deployed.jpg"
+  },
+  {
+    title: "CodeLog",
+    description: "제출 전에 파일 이름, 누락, 용량을 확인하는 로컬 파일 검사기 마침표.",
+    tags: ["HTML", "CSS", "JavaScript"],
+    siteUrl: "https://hoodie5622.github.io/CodeLog/",
+    codeUrl: "https://github.com/hoodie5622/CodeLog",
+    image: "assets/codelog.jpg"
+  }
+];

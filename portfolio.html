@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="직접 만든 웹사이트를 소개하고 방문할 수 있는 포트폴리오입니다.">
+  <title>포트폴리오 | 나의 작업실</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./public.css">
+  <link rel="stylesheet" href="./portfolio.css">
+  <script src="./public.js" defer></script>
+  <script src="./portfolio-data.js" defer></script>
+  <script src="./portfolio.js" defer></script>
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">본문으로 바로가기</a>
+
+  <header class="site-header wrap">
+    <a class="brand" href="./index.html">
+      나의 작업실<span>PORTFOLIO</span>
+    </a>
+
+    <nav aria-label="포트폴리오 메뉴">
+      <a href="./index.html">프로젝트 소개</a>
+      <a href="./portfolio.html" aria-current="page">포트폴리오</a>
+      <button id="publicTheme" type="button" hidden>테마 전환</button>
+    </nav>
+  </header>
+
+  <main id="main" class="wrap portfolio-main" tabindex="-1">
+    <section aria-labelledby="portfolioTitle">
+      <p class="eyebrow">SELECTED WORK / PORTFOLIO</p>
+      <h1 id="portfolioTitle">직접 만든 웹사이트</h1>
+      <p class="lead">
+        작품을 살펴보고, 실제 사이트로 이동해 보세요.
+      </p>
+      <p class="muted">
+        사이트와 소스코드 링크는 새 탭으로 열립니다.
+      </p>
+
+      <label class="portfolio-search" for="portfolioSearch">
+        작품 검색
+        <input
+          id="portfolioSearch"
+          type="search"
+          placeholder="제목·설명·기술 검색"
+          maxlength="100"
+          disabled
+        >
+      </label>
+
+      <p id="portfolioCount" role="status">
+        작품 목록을 불러오는 중입니다.
+      </p>
+
+      <p
+        id="portfolioNotice"
+        class="portfolio-notice"
+        role="status"
+        hidden
+      ></p>
+
+      <div id="portfolioGrid" class="portfolio-grid"></div>
+
+      <noscript>
+        작품 목록을 보려면 브라우저의 JavaScript를 켜 주세요.
+      </noscript>
+    </section>
+  </main>
+
+  <footer class="site-footer wrap">
+    <p>Portfolio · 직접 만들고 개선하는 기록</p>
+    <a href="./index.html">소개 페이지로 돌아가기</a>
+  </footer>
+</body>
+</html>

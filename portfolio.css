@@ -1,0 +1,177 @@
+/* 전시 페이지 스타일. 기존 개인 포털 화면에는 적용하지 않습니다. */
+.portfolio-main {
+  padding-block: 52px 72px;
+}
+
+.portfolio-main h1 {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+}
+
+.portfolio-search {
+  display: grid;
+  gap: 8px;
+  max-width: 480px;
+  margin-top: 28px;
+}
+
+.portfolio-search input {
+  width: 100%;
+  min-width: 0;
+  padding: 12px 14px;
+  font: inherit;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--text);
+  background: var(--surface);
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.portfolio-card {
+  min-width: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface);
+}
+
+.portfolio-preview {
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px;
+  background: var(--soft);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.portfolio-preview span {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.portfolio-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.portfolio-preview.has-image {
+  padding: 0;
+}
+
+.portfolio-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 24px;
+}
+
+.portfolio-body h2 {
+  font-size: 1.3rem;
+}
+
+.portfolio-description {
+  color: var(--muted);
+  white-space: pre-wrap;
+}
+
+.portfolio-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+}
+
+.portfolio-tags li {
+  padding: 3px 9px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 0.8rem;
+}
+
+.portfolio-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.portfolio-link {
+  display: inline-block;
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.portfolio-link:first-child {
+  background: var(--soft);
+}
+
+.portfolio-link:hover {
+  text-decoration: underline;
+}
+
+.portfolio-unavailable {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.portfolio-notice {
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+/* 개인 포털 사이드바에 추가한 링크만 꾸밉니다. */
+.portfolio-entry {
+  display: block;
+  padding: 13px 15px;
+  margin: 6px 0;
+  border: 1px solid var(--border, #cfd9e6);
+  border-radius: 8px;
+  color: var(--text);
+  background: var(--surface);
+  text-decoration: none;
+}
+
+.portfolio-entry:hover {
+  background: var(--hover, var(--surface));
+}
+
+.portfolio-entry:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 580px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-main {
+    padding-block: 32px 48px;
+  }
+
+  .portfolio-body {
+    padding: 20px;
+  }
+}
