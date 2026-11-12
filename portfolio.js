@@ -1,5 +1,5 @@
-// 공개 작품 목록만 표시합니다. 개인 포털 저장소에는 접근하지 않습니다.
-(() => {
+// Pages CMS의 JSON 작품 목록만 표시합니다. 개인 포털 저장소에는 접근하지 않습니다.
+(async () => {
   "use strict";
 
   const grid = document.getElementById("portfolioGrid");
@@ -10,14 +10,60 @@
   if (!grid || !search || !count || !notice || grid.dataset.ready) return;
   grid.dataset.ready = "true";
 
-  const source = window.PORTFOLIO_PROJECTS;
-
-  if (!Array.isArray(source)) {
-    count.textContent = "목록을 불러오지 못했습니다.";
+  // 작품의 기준 원본은 portfolio.json입니다. 이전 JS 목록을 읽지 않습니다.
+  let source;
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 15000);
+  try {
+    const response = await fetch(new URL("./portfolio.json", document.baseURI), {
+      cache: "no-cache",
+      credentials: "same-origin",
+      signal: controller.signal
+    });
+    if (!response.ok) throw new Error(`목록 응답 오류: ${response.status}`);
+    const data = await response.json();
+    if (!data || !Array.isArray(data.projects)) {
+      throw new Error("portfolio.json에 projects 배열이 없습니다.");
+    }
+    source = data.projects;
+  } catch (error) {
+    console.error("포트폴리오 목록 읽기 실패", error);
+    count.textContent = "작품 목록을 불러오지 못했습니다.";
     notice.hidden = false;
-    notice.textContent =
-      "portfolio-data.js의 파일명, 문법, 연결 순서를 확인하세요.";
+    notice.textContent = location.protocol === "file:"
+      ? "파일 더블 클릭 대신 기존 Live Server 또는 공개 사이트 주소로 열어 주세요."
+      : "잠시 후 새로고침해 주세요. 계속 실패하면 GitHub의 portfolio.json과 Pages 배포 결과를 확인하세요.";
     return;
+  } finally {
+    clearTimeout(timeout);
+  }
+
+  // CMS의 이미지 선택 결과를 같은 사이트의 assets 경로로 제한합니다.
+  // 상대 경로, /assets/..., /portal-intro/assets/... 및 같은 출처의 절대 URL을 처리합니다.
+  function imageUrl(value) {
+    if (typeof value !== "string" || !value.trim()) return "";
+    try {
+      const base = new URL("./", document.baseURI);
+      let path = value.trim();
+      if (/^https?:\/\//i.test(path)) {
+        const url = new URL(path);
+        if (url.origin !== base.origin || url.username || url.password || url.search || url.hash) return "";
+        path = url.pathname;
+      }
+      path = decodeURIComponent(path);
+      if (path.startsWith("/portal-intro/assets/")) path = path.slice("/portal-intro/".length);
+      else if (base.pathname !== "/" && path.startsWith(base.pathname + "assets/")) path = path.slice(base.pathname.length);
+      else if (path.startsWith("/assets/")) path = path.slice(1);
+      else if (path.startsWith("./assets/")) path = path.slice(2);
+      if (!path.startsWith("assets/") || /[\\?#%\u0000-\u001f\u007f]/.test(path)) return "";
+      const parts = path.split("/");
+      if (parts.some(part => !part || part === "." || part === "..")) return "";
+      if (!/\.(png|jpe?g|webp|avif)$/i.test(parts.at(-1))) return "";
+      const url = new URL(parts.map(encodeURIComponent).join("/"), base);
+      return url.origin === base.origin ? url.href : "";
+    } catch {
+      return "";
+    }
   }
 
   // 공개용 링크 형식만 검사합니다.
@@ -97,11 +143,8 @@
 
     preview.setAttribute("aria-hidden", "true");
 
-    // 이미지: 같은 공개 폴더 아래 assets/파일명만 허용합니다.
-    if (
-      typeof project.image === "string" &&
-      /^assets\/[a-zA-Z0-9_-]+\.(png|jpe?g|webp|avif)$/i.test(project.image)
-    ) {
+    const previewUrl = imageUrl(project.image);
+    if (previewUrl) {
       const image = document.createElement("img");
 
       image.alt = `${project.title} 화면 미리보기`;
@@ -113,7 +156,7 @@
         preview.textContent = "미리보기 이미지 준비 중";
       }, { once: true });
 
-      image.src = new URL(project.image, document.baseURI).href;
+      image.src = previewUrl;
 
       preview.removeAttribute("aria-hidden");
       preview.classList.add("has-image");

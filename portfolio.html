@@ -9,8 +9,7 @@
   <link rel="stylesheet" href="./public.css">
   <link rel="stylesheet" href="./portfolio.css">
   <script src="./public.js" defer></script>
-  <script src="./portfolio-data.js" defer></script>
-  <script src="./portfolio.js" defer></script>
+  <script src="./portfolio.js?v=cms-1" defer></script>
 </head>
 <body id="top">
   <a class="skip-link" href="#main">본문으로 바로가기</a>
@@ -23,6 +22,7 @@
     <nav aria-label="포트폴리오 메뉴">
       <a href="./index.html">프로젝트 소개</a>
       <a href="./portfolio.html" aria-current="page">포트폴리오</a>
+      <a href="https://app.pagescms.org" target="_blank" rel="noopener noreferrer">작품 관리 ↗</a>
       <button id="publicTheme" type="button" hidden>테마 전환</button>
     </nav>
   </header>
@@ -61,6 +61,7 @@
       ></p>
 
       <div id="portfolioGrid" class="portfolio-grid"></div>
+      <p class="muted">작품 수정은 위의 ‘작품 관리’에서 GitHub 로그인 후 진행합니다. 일반 방문자는 편집할 수 없습니다.</p>
 
       <noscript>
         작품 목록을 보려면 브라우저의 JavaScript를 켜 주세요.
