@@ -13,7 +13,7 @@ window.PORTFOLIO_PROJECTS = [
     title: "Quiet-Orbit",
     description: "아무것도 하지 않아도 괜찮은 시간. 마우스를 따라 흐르는 별빛, 천천히 바뀌는 다섯 우주와 함께 잠시 쉬어가세요.",
     tags: ["HTML", "CSS", "JavaScript"],
-    siteUrl: "https://hoodie5622.github.io/portal-intro/",
+    siteUrl: "https://hoodie5622.github.io/Quiet-Orbit/",
     codeUrl: "https://github.com/hoodie5622/Quiet-Orbit",
     image: "assets/quiet-orbit-github-v5.jpg"
   },
